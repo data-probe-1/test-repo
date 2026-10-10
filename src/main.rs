@@ -13,4 +13,5 @@ use application::Application;
 fn main() {
     let application = Application::new();
     application.run();
+    application.count(3, 8);
 }

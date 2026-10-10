@@ -23,4 +23,15 @@ impl Application {
     pub fn run(&self) {
         println!("Hello World!");
     }
+
+    /// Counts from `a` to `b` inclusive, printing each number on its own line.
+    ///
+    /// `a..=b` is an *inclusive range*: it includes `b`. The plain form `a..b`
+    /// would stop one short, like `for (int i = a; i < b; i++)` in C++. If `a`
+    /// is greater than `b`, the range is empty and nothing is printed.
+    pub fn count(&self, a: i32, b: i32) {
+        for number in a..=b {
+            println!("{number}");
+        }
+    }
 }
