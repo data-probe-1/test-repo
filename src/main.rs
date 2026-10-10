@@ -1,41 +1,16 @@
-//---------------------------------------------------------------------------------------------------------------------
-// Project: Hello World
-// Version: 1.0.0
-// Date:    2026-10-10
-// Author:  Rohin Gosling
-//
-// Description:
-//
-//   A minimal "Hello World" program for beginners learning Rust.
-//
-//   - Build and run with:  cargo run
-//   - Every Rust executable starts at the function named "main".
-//   - "println!" is a macro (note the "!"), which prints text to the terminal followed by a newline.
-//
-// TODO:
-//
-//   1. None.
-//
-//---------------------------------------------------------------------------------------------------------------------
+//! Hello World: a minimal Rust program for beginners.
+//!
+//! Build and run with `cargo run`.
 
-//----------------------------------------------------------------------------
-// Function: main
-//
-// Description:
-//
-//   Program entry point. Prints "Hello World!" to the terminal, then exits.
-//
-// Arguments:
-//
-//   - None.
-//
-// Returns:
-//
-//   - None.
-//
-//----------------------------------------------------------------------------
+// Declares the `application` module. Rust loads it from `src/application.rs`.
+mod application;
 
-fn main()
-{
-    println!( "Hello World!" );
+// Brings `Application` into scope, so we can write `Application`
+// instead of `application::Application`.
+use application::Application;
+
+/// Program entry point. Every Rust executable starts at `main`.
+fn main() {
+    let application = Application::new();
+    application.run();
 }

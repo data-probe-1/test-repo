@@ -27,16 +27,21 @@ cargo run            # Build and run (prints "Hello World!")
 cargo test           # Run tests (none exist yet)
 cargo test <name>    # Run a single test by name filter
 cargo clippy         # Lint
-cargo fmt --check    # Format check. Note: rustfmt's defaults conflict with the house style below. Don't run `cargo fmt` without being asked.
+cargo fmt            # Format (rustfmt style is used in this repo)
 ```
 
 ## Code Style
 
-Follow the existing style in `src/main.rs`, which uses the user's global coding standards rather than rustfmt defaults:
+This repo uses **idiomatic Rust style**, by the user's choice. It overrides the global Allman / spaces-inside-parentheses / header-block standards:
 
-- Allman braces, spaces inside parentheses (`println!( "..." )`), and columnar alignment (see `Cargo.toml`).
-- A file header block (Project, Version, Date, Author, Description, TODO) and a function header block (Function, Description, Arguments, Returns). Both are bordered with `//---` rules.
-- Version `1.0.0` appears in both `Cargo.toml` and the `src/main.rs` header. Keep them in sync.
+- Format with rustfmt. `cargo fmt --check` and `cargo clippy -- -D warnings` must pass.
+- Use Rust doc comments (`//!` for modules, `///` for items), not banner header blocks. The comments explain Rust concepts for a beginner coming from C++.
+- Still spell out names in full (`application`, not `app`).
+
+## Architecture
+
+- `src/main.rs`: entry point. It declares `mod application;`, creates an `Application` and calls `run()`.
+- `src/application.rs`: the `Application` unit struct, with `new()` (constructor by convention) and `run(&self)`.
 
 ## Release Archives
 
