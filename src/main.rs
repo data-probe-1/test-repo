@@ -14,4 +14,5 @@ fn main() {
     let application = Application::new();
     application.run();
     application.count(3, 8);
+    println!("{}", application.add(2, 3));
 }

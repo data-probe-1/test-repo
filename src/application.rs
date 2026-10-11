@@ -34,4 +34,12 @@ impl Application {
             println!("{number}");
         }
     }
+
+    /// Adds `a` and `b` and returns the result.
+    ///
+    /// `-> i32` is the return type. The last expression in a function is the return
+    /// value, so no `return` keyword is needed.
+    pub fn add(&self, a: i32, b: i32) -> i32 {
+        a + b
+    }
 }
