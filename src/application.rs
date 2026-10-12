@@ -16,12 +16,20 @@ impl Application {
         Application
     }
 
-    /// Runs the application: prints "Hello World!" to the terminal.
+    /// Runs the application: prints the program name and version, then calls
+    /// `count` and `add`.
     ///
     /// `&self` makes this a method. It borrows the instance read-only, much like a
     /// `const` member function in C++.
     pub fn run(&self) {
-        println!("Hello World!");
+        println!();
+        println!("Program: Test Program");
+        println!("Version: 1.0");
+        println!();
+        self.count(3, 8);
+        println!();
+        println!("Add: {}", self.add(2, 3));
+        println!();
     }
 
     /// Counts from `a` to `b` inclusive, printing each number on its own line.
@@ -31,7 +39,7 @@ impl Application {
     /// is greater than `b`, the range is empty and nothing is printed.
     pub fn count(&self, a: i32, b: i32) {
         for number in a..=b {
-            println!("{number}");
+            println!("i = {number}");
         }
     }
 
